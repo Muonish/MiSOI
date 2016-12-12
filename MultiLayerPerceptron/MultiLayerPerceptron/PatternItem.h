@@ -15,6 +15,8 @@
 
 + (NSUInteger)attributesNumber;
 
+- (instancetype)initWithImage:(NSImage *)image;
+
 - (void)setupAttributesWithImage:(NSImage *)image;
 - (void)setupAttributesWithArray:(NSArray *)numbers;
 

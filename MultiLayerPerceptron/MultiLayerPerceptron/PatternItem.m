@@ -16,6 +16,14 @@ static const NSUInteger ATTRIBUTES_NUMBER = 600;
     return ATTRIBUTES_NUMBER;
 }
 
+- (instancetype)initWithImage:(NSImage *)image {
+    self = [super init];
+    if (self) {
+        [self setupAttributesWithImage:image];
+    }
+    return self;
+}
+
 - (void)setupAttributesWithImage:(NSImage *)image {
     NSBitmapImageRep * rawImg = [NSBitmapImageRep imageRepWithData:[image TIFFRepresentation]];
     NSInteger width = 20;

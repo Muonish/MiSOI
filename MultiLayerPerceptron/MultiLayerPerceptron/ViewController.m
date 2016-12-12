@@ -35,20 +35,26 @@
     //NSImage * smallB = [self smallImage:[NSImage imageNamed:@"b"]];
     //self.image1.image = smallB;
 
-    PatternItem * letterB = [PatternItem new];
-    [letterB setupAttributesWithImage:[NSImage imageNamed:@"b_20x30"]];
-    //[letterB setupAttributesWithArray:@[@0, @0, @1]];
-    [self.patternGroupB.patterns addObject:letterB];
+    PatternItem * letter1 = [[PatternItem alloc] initWithImage:[NSImage imageNamed:@"b_20x30"]];
+    //PatternItem * letter2 = [[PatternItem alloc] initWithImage:[NSImage imageNamed:@"b1_20x30"]];
+    PatternItem * letter3 = [[PatternItem alloc] initWithImage:[NSImage imageNamed:@"b2_20x30"]];
+    [self.patternGroupB.patterns addObject:letter1];
+    //[self.patternGroupB.patterns addObject:letter2];
+    [self.patternGroupB.patterns addObject:letter3];
 
-    PatternItem * letterV = [PatternItem new];
-    [letterV setupAttributesWithImage:[NSImage imageNamed:@"v_20x30"]];
-//    [letterV setupAttributesWithArray:@[@0, @1, @0]];
-    [self.patternGroupV.patterns addObject:letterV];
+    PatternItem * letter4 = [[PatternItem alloc] initWithImage:[NSImage imageNamed:@"v_20x30"]];
+    //PatternItem * letter5 = [[PatternItem alloc] initWithImage:[NSImage imageNamed:@"v1_20x30"]];
+    PatternItem * letter6 = [[PatternItem alloc] initWithImage:[NSImage imageNamed:@"v2_20x30"]];
+    [self.patternGroupV.patterns addObject:letter4];
+    //[self.patternGroupV.patterns addObject:letter5];
+    [self.patternGroupV.patterns addObject:letter6];
 
-    PatternItem * letterN = [PatternItem new];
-    [letterN setupAttributesWithImage:[NSImage imageNamed:@"n_20x30"]];
-    //[letterN setupAttributesWithArray:@[@1, @0, @0]];
-    [self.patternGroupN.patterns addObject:letterN];
+    PatternItem * letter7 = [[PatternItem alloc] initWithImage:[NSImage imageNamed:@"n_20x30"]];
+    //PatternItem * letter8 = [[PatternItem alloc] initWithImage:[NSImage imageNamed:@"n1_20x30"]];
+    PatternItem * letter9 = [[PatternItem alloc] initWithImage:[NSImage imageNamed:@"n2_20x30"]];
+    [self.patternGroupN.patterns addObject:letter7];
+    //[self.patternGroupN.patterns addObject:letter8];
+    [self.patternGroupN.patterns addObject:letter9];
 
     NSArray * trainingSet = @[self.patternGroupB, self.patternGroupV, self.patternGroupN];
 

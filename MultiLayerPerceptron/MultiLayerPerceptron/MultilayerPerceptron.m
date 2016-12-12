@@ -147,7 +147,7 @@ static const CGFloat momentum = 0.7f;
                 CGFloat ak = outR.receiver.value;
                 CGFloat desiredOutput = expectedOutput.value == ak ? 1.0 : 0.0;
                 j++;
-                sumKoutputs += (-(desiredOutput - ak) * ak * (1 - ak) * wjk);
+                sumKoutputs += -(desiredOutput - ak) * ak * (1 - ak) * wjk;
             }
 
             CGFloat partialDerivative = aj * (1 - aj) * ai * sumKoutputs;

@@ -40,11 +40,7 @@ static const NSInteger bias = -1;
     }
     s = s + (self.biasRelation.weight * bias);
 
-    self.value = [self g:s];
-}
-
-- (CGFloat)g:(CGFloat)x {
-    return [self sigmoid:x];
+    self.value = [self sigmoid:s];
 }
 
 - (CGFloat)sigmoid:(CGFloat)x {
