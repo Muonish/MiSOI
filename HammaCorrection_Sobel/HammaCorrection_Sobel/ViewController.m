@@ -12,6 +12,8 @@
 #import "LoopDomainsDetector.h"
 #import "KmeansClassifier.h"
 #import "KmedoidsClassifier.h"
+#import "HarrisCornersDetector.h"
+#import "HarrisInterface.h"
 
 @interface ViewController ()
 
@@ -25,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self openImage:[NSImage imageNamed:@"P0001461"]];
+    [self openImage:[NSImage imageNamed:@"black-white-hat"]];
 }
 
 - (void)openImage:(NSImage *)image {
@@ -90,6 +92,7 @@
 
 - (IBAction)onLowFilter:(id)sender {
     self.imageViewInitial.image = [self.imageViewInitial.image lowFilter];
+    self.imageViewInitial.image = [self.imageViewInitial.image binaryCorrection];
     [self buildGistogramForInitialImage];
 }
 
@@ -142,5 +145,10 @@
 
 }
 
+#pragma mark - Harris corners detector
+
+- (IBAction)onHarrisCornersDetector:(id)sender {
+    self.imageViewFiltered.image = [HarrisInterface getMaximaPoints:self.imageViewInitial.image percentage:0.001];
+}
 
 @end

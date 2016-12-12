@@ -870,8 +870,8 @@
                                 </constraints>
                             </box>
                             <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ivP-Mo-zfP">
-                                <rect key="frame" x="35" y="391" width="112" height="32"/>
-                                <buttonCell key="cell" type="push" title="Low fr. filter" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="un4-85-Vfq">
+                                <rect key="frame" x="3" y="391" width="176" height="32"/>
+                                <buttonCell key="cell" type="push" title="Low fr. filter &amp; binarise" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="un4-85-Vfq">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -892,7 +892,7 @@
                                     <action selector="onNegative:" target="XfG-lQ-9wD" id="dJS-Jj-HNf"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="A06-01-cGq">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="A06-01-cGq">
                                 <rect key="frame" x="26" y="517" width="130" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="u14-ue-T8V"/>
@@ -1038,6 +1038,16 @@
                                     <constraint firstAttribute="height" constant="111" id="xh0-hf-QqO"/>
                                 </constraints>
                             </box>
+                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xWe-9Y-hrm">
+                                <rect key="frame" x="4" y="358" width="175" height="32"/>
+                                <buttonCell key="cell" type="push" title="Harris corner detector" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="p07-Ri-dRn">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="onHarrisCornersDetector:" target="XfG-lQ-9wD" id="Red-mr-lOb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="ll4-Wy-IfL" firstAttribute="centerX" secondItem="eMk-6S-hpg" secondAttribute="centerX" id="4xX-Xz-3ui"/>
@@ -1046,6 +1056,7 @@
                             <constraint firstItem="A06-01-cGq" firstAttribute="centerX" secondItem="XAc-PF-1Zo" secondAttribute="centerX" id="GPy-8o-H6W"/>
                             <constraint firstItem="A06-01-cGq" firstAttribute="top" secondItem="pVj-g4-z2O" secondAttribute="bottom" constant="20" id="Gn2-YR-oF4"/>
                             <constraint firstItem="ivP-Mo-zfP" firstAttribute="centerX" secondItem="0Md-oi-unb" secondAttribute="centerX" id="Kwl-eH-gOh"/>
+                            <constraint firstItem="xWe-9Y-hrm" firstAttribute="centerX" secondItem="ivP-Mo-zfP" secondAttribute="centerX" id="M52-3t-Dn9"/>
                             <constraint firstItem="rpV-Gj-vdO" firstAttribute="top" secondItem="XAc-PF-1Zo" secondAttribute="bottom" constant="200" id="OxG-Gu-cMJ"/>
                             <constraint firstItem="pVj-g4-z2O" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="PiG-qU-4xr"/>
                             <constraint firstItem="DmY-8I-e0I" firstAttribute="leading" secondItem="rpV-Gj-vdO" secondAttribute="trailing" constant="8" id="RkB-2R-xL0"/>
@@ -1059,6 +1070,7 @@
                             <constraint firstItem="GAf-4U-EXr" firstAttribute="centerX" secondItem="eMk-6S-hpg" secondAttribute="centerX" id="lCN-Co-hHz"/>
                             <constraint firstItem="pVj-g4-z2O" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="11" id="me2-DP-7bn"/>
                             <constraint firstItem="DmY-8I-e0I" firstAttribute="leading" secondItem="pVj-g4-z2O" secondAttribute="trailing" constant="8" id="naW-l3-VIv"/>
+                            <constraint firstItem="xWe-9Y-hrm" firstAttribute="top" secondItem="ivP-Mo-zfP" secondAttribute="bottom" constant="12" id="oNj-0J-IcN"/>
                             <constraint firstItem="DmY-8I-e0I" firstAttribute="leading" secondItem="UBb-Si-NdJ" secondAttribute="trailing" constant="8" id="tEL-c7-CQt"/>
                             <constraint firstItem="rpV-Gj-vdO" firstAttribute="top" secondItem="ll4-Wy-IfL" secondAttribute="bottom" constant="10" id="ua0-i4-cfo"/>
                             <constraint firstAttribute="bottom" secondItem="DmY-8I-e0I" secondAttribute="bottom" id="xxj-nH-vWC"/>

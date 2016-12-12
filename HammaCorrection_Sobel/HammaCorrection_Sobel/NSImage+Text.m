@@ -15,8 +15,7 @@
     NSDictionary * attributes = @{NSFontAttributeName            : font,
                                   NSForegroundColorAttributeName : [NSColor redColor]};
     [self lockFocus];
-    [@"." drawAtPoint:point withAttributes:attributes];
-    [text drawAtPoint:CGPointMake(point.x + 5, point.y) withAttributes:attributes];
+    [text drawAtPoint:point withAttributes:attributes];
     [self unlockFocus];
 }
 

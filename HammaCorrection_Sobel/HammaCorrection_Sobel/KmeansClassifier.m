@@ -2,9 +2,7 @@
 //  KmeansClassifier.m
 //  HammaCorrection_Sobel
 //
-//  Created by Valeryia Breshko on 10/29/16.
-//  Copyright © 2016 Valeria Breshko. All rights reserved.
-//
+
 
 #import "KmeansClassifier.h"
 

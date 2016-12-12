@@ -18,6 +18,12 @@
 		302F26901DC69EEF00409D45 /* AnotherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302F268F1DC69EEF00409D45 /* AnotherViewController.m */; };
 		3042207B1DCD3407000E3D68 /* HarrisCornersDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3042207A1DCD3407000E3D68 /* HarrisCornersDetector.m */; };
 		3042208A1DCE5B87000E3D68 /* CTFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 304220891DCE5B87000E3D68 /* CTFViewController.m */; };
+		3074170B1DE0997100797B9A /* Derivatives.m in Sources */ = {isa = PBXBuildFile; fileRef = 3074170A1DE0997100797B9A /* Derivatives.m */; };
+		3074170F1DE201D000797B9A /* harris.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3074170D1DE201D000797B9A /* harris.cpp */; };
+		307417151DE2072600797B9A /* HarrisInterface.mm in Sources */ = {isa = PBXBuildFile; fileRef = 307417141DE2072600797B9A /* HarrisInterface.mm */; };
+		307417181DE2236900797B9A /* util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 307417161DE2236900797B9A /* util.cpp */; };
+		3074171B1DE2256100797B9A /* NSImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3074171A1DE2256100797B9A /* NSImage+OpenCV.mm */; };
+		3074171E1DE22CA800797B9A /* libopencv_core.3.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3074171D1DE22CA800797B9A /* libopencv_core.3.1.0.dylib */; };
 		30B864531DA19C6500CCDA8E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B864521DA19C6500CCDA8E /* AppDelegate.m */; };
 		30B864561DA19C6500CCDA8E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B864551DA19C6500CCDA8E /* main.m */; };
 		30B864591DA19C6500CCDA8E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B864581DA19C6500CCDA8E /* ViewController.m */; };
@@ -133,6 +139,17 @@
 		3042207A1DCD3407000E3D68 /* HarrisCornersDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HarrisCornersDetector.m; sourceTree = "<group>"; };
 		304220881DCE5B87000E3D68 /* CTFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTFViewController.h; path = ../CTFViewController.h; sourceTree = "<group>"; };
 		304220891DCE5B87000E3D68 /* CTFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTFViewController.m; path = ../CTFViewController.m; sourceTree = "<group>"; };
+		307417091DE0997100797B9A /* Derivatives.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Derivatives.h; sourceTree = "<group>"; };
+		3074170A1DE0997100797B9A /* Derivatives.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Derivatives.m; sourceTree = "<group>"; };
+		3074170D1DE201D000797B9A /* harris.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = harris.cpp; sourceTree = "<group>"; };
+		3074170E1DE201D000797B9A /* harris.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = harris.h; sourceTree = "<group>"; };
+		307417131DE2072600797B9A /* HarrisInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HarrisInterface.h; sourceTree = "<group>"; };
+		307417141DE2072600797B9A /* HarrisInterface.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HarrisInterface.mm; sourceTree = "<group>"; };
+		307417161DE2236900797B9A /* util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = util.cpp; sourceTree = "<group>"; };
+		307417171DE2236900797B9A /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
+		307417191DE2256100797B9A /* NSImage+OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+OpenCV.h"; sourceTree = "<group>"; };
+		3074171A1DE2256100797B9A /* NSImage+OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSImage+OpenCV.mm"; sourceTree = "<group>"; };
+		3074171D1DE22CA800797B9A /* libopencv_core.3.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.3.1.0.dylib; path = ../../../../../../usr/local/lib/libopencv_core.3.1.0.dylib; sourceTree = "<group>"; };
 		30B8644E1DA19C6500CCDA8E /* HammaCorrection_Sobel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HammaCorrection_Sobel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B864511DA19C6500CCDA8E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		30B864521DA19C6500CCDA8E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -156,6 +173,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3074171E1DE22CA800797B9A /* libopencv_core.3.1.0.dylib in Frameworks */,
 				30B864851DA19C7800CCDA8E /* CorePlot.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,12 +207,45 @@
 			name = DomainsDetectors;
 			sourceTree = "<group>";
 		};
+		307416FC1DE0995300797B9A /* HarrisCornerDetector */ = {
+			isa = PBXGroup;
+			children = (
+				304220791DCD3407000E3D68 /* HarrisCornersDetector.h */,
+				3042207A1DCD3407000E3D68 /* HarrisCornersDetector.m */,
+				307417091DE0997100797B9A /* Derivatives.h */,
+				3074170A1DE0997100797B9A /* Derivatives.m */,
+			);
+			name = HarrisCornerDetector;
+			sourceTree = "<group>";
+		};
+		3074170C1DE201B100797B9A /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				307417161DE2236900797B9A /* util.cpp */,
+				307417171DE2236900797B9A /* util.h */,
+				3074170D1DE201D000797B9A /* harris.cpp */,
+				3074170E1DE201D000797B9A /* harris.h */,
+				307417131DE2072600797B9A /* HarrisInterface.h */,
+				307417141DE2072600797B9A /* HarrisInterface.mm */,
+			);
+			name = ThirdParty;
+			sourceTree = "<group>";
+		};
+		3074171C1DE22CA800797B9A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3074171D1DE22CA800797B9A /* libopencv_core.3.1.0.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		30B864451DA19C6500CCDA8E = {
 			isa = PBXGroup;
 			children = (
 				30B864651DA19C6F00CCDA8E /* CorePlot.xcodeproj */,
 				30B864501DA19C6500CCDA8E /* HammaCorrection_Sobel */,
 				30B8644F1DA19C6500CCDA8E /* Products */,
+				3074171C1DE22CA800797B9A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -209,8 +260,8 @@
 		30B864501DA19C6500CCDA8E /* HammaCorrection_Sobel */ = {
 			isa = PBXGroup;
 			children = (
-				304220791DCD3407000E3D68 /* HarrisCornersDetector.h */,
-				3042207A1DCD3407000E3D68 /* HarrisCornersDetector.m */,
+				3074170C1DE201B100797B9A /* ThirdParty */,
+				307416FC1DE0995300797B9A /* HarrisCornerDetector */,
 				301CAD251DC62AC000020225 /* DomainsDetectors */,
 				301CAD241DC6271B00020225 /* Classifiers */,
 				30D292EB1DA969FF00116EA8 /* Categories */,
@@ -270,6 +321,8 @@
 		30D292EB1DA969FF00116EA8 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				307417191DE2256100797B9A /* NSImage+OpenCV.h */,
+				3074171A1DE2256100797B9A /* NSImage+OpenCV.mm */,
 				30D292EC1DA96A2500116EA8 /* NSImage+Filters.h */,
 				30D292ED1DA96A2500116EA8 /* NSImage+Filters.m */,
 				300D78091DBD65D800BAE1BC /* NSImage+Text.h */,
@@ -415,7 +468,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3074170B1DE0997100797B9A /* Derivatives.m in Sources */,
 				301CAD2B1DC62B7500020225 /* RecursiveDomainsDetector.m in Sources */,
+				307417181DE2236900797B9A /* util.cpp in Sources */,
+				307417151DE2072600797B9A /* HarrisInterface.mm in Sources */,
 				3042207B1DCD3407000E3D68 /* HarrisCornersDetector.m in Sources */,
 				302F26901DC69EEF00409D45 /* AnotherViewController.m in Sources */,
 				30B864591DA19C6500CCDA8E /* ViewController.m in Sources */,
@@ -430,8 +486,10 @@
 				300D780E1DBD754300BAE1BC /* ConnectedDomain.m in Sources */,
 				30B864531DA19C6500CCDA8E /* AppDelegate.m in Sources */,
 				30D292EE1DA96A2500116EA8 /* NSImage+Filters.m in Sources */,
+				3074170F1DE201D000797B9A /* harris.cpp in Sources */,
 				301CAD111DC5129F00020225 /* KmeansClassifier.m in Sources */,
 				301CAD281DC62AE000020225 /* DomainsDetector.m in Sources */,
+				3074171B1DE2256100797B9A /* NSImage+OpenCV.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,8 +607,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = /usr/local/include;
 				INFOPLIST_FILE = HammaCorrection_Sobel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_LDFLAGS = "-Wl,-stack_size,0x10000000";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.muon.HammaCorrection-Sobel";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -561,8 +622,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = /usr/local/include;
 				INFOPLIST_FILE = HammaCorrection_Sobel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_LDFLAGS = "-Wl,-stack_size,0x10000000";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.muon.HammaCorrection-Sobel";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

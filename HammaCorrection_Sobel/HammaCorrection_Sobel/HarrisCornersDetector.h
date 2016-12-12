@@ -2,9 +2,7 @@
 //  HarrisCornersDetector.h
 //  HammaCorrection_Sobel
 //
-//  Created by Valeryia Breshko on 11/5/16.
-//  Copyright © 2016 Valeria Breshko. All rights reserved.
-//
+
 
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
@@ -23,5 +21,7 @@
 @property (assign, nonatomic) NSInteger height;
 
 - (instancetype)initWithImage:(NSImage *)image;
+
+- (NSImage *)imageWithResponses;
 
 @end

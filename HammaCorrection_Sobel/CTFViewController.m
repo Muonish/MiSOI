@@ -2,9 +2,7 @@
 //  CTFViewController.m
 //  HammaCorrection_Sobel
 //
-//  Created by Valeryia Breshko on 11/5/16.
-//  Copyright © 2016 Valeria Breshko. All rights reserved.
-//
+
 
 #import "CTFViewController.h"
 #import "NSImage+Filters.h"

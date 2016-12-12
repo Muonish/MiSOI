@@ -2,11 +2,20 @@
 //  HarrisCornersDetector.m
 //  HammaCorrection_Sobel
 //
-//  Created by Valeryia Breshko on 11/5/16.
-//  Copyright © 2016 Valeria Breshko. All rights reserved.
-//
+
 
 #import "HarrisCornersDetector.h"
+#import "NSImage+Filters.h"
+#import "Derivatives.h"
+#import "NSImage+Text.h"
+
+@interface HarrisCornersDetector()
+
+@property (strong, nonatomic) NSImage * filteredImage;
+@property (assign, nonatomic) NSInteger * harrisResponses;
+@property (strong, nonatomic) Derivatives * derivatives;
+
+@end
 
 @implementation HarrisCornersDetector
 
@@ -14,7 +23,8 @@
     self = [super init];
     if (self) {
         self.image = image;
-        self.rawImg = [NSBitmapImageRep imageRepWithData:[self.image TIFFRepresentation]];
+        self.filteredImage = [[image grayscaleImage] medianFilterWithSize:3] ;
+        self.rawImg = [NSBitmapImageRep imageRepWithData:[self.filteredImage TIFFRepresentation]];
         self.width = [self.rawImg pixelsWide];
         self.height = [self.rawImg pixelsHigh];
 
@@ -32,147 +42,73 @@
         }
 
     }
+
+    [self computeDerivatives];
+    [self applyFiltersToDerivatives];
+    [self computeHarrisResponsesWithK:0.25];
+
     return self;
 }
 
-//- (NSArray *)corners {
+- (NSImage *)imageWithResponses {
+    for (NSInteger i = 0; i < self.width; i++) {
+        for (NSInteger j = 0; j < self.height; j++) {
+            if (self.harrisResponses[i * self.height + j] > 1) {
+                NSInteger responce = self.harrisResponses[i * self.height + j];
+                [self.image drawText:@"" atPoint:CGPointMake(i, j)];
+            }
+        }
+    }
+    return self.image;
+}
 
-//TODO: translate C# hell
+- (void)computeDerivatives {
+    Derivatives * d = [Derivatives new];
+    CGFloat memSize = self.width * self.height * sizeof(NSInteger);
+    d.Ix = malloc(memSize);
+    d.Iy = malloc(memSize);
+    d.Ixy = malloc(memSize);
+    memset(d.Ix, 0, memSize);
+    memset(d.Iy, 0, memSize);
+    memset(d.Ixy, 0, memSize);
 
-//    // 1. Calculate partial differences
-//    CGFloat memSize = self.width * self.height * sizeof(NSInteger);
-//    NSInteger * diffx = malloc(memSize);
-//    NSInteger * diffy = malloc(memSize);
-//    NSInteger * diffxy = malloc(memSize);
-//
-//    {
-//        NSInteger * pdx = diffx;
-//        NSInteger * pdy = diffy;
-//        NSInteger * pdxy = diffxy;
-//        //byte* src = (byte*)grayImage.ImageData.ToPointer() + srcStride + 1;
-//
-//        // Skip first row and first column
-//        float* dx = pdx + self.width + 1;
-//        float* dy = pdy + self.width + 1;
-//        float* dxy = pdxy + self.width + 1;
-//
-//        // for each line
-//        for (int y = 1; y < height - 1; y++)
-//        {
-//            // for each pixel
-//            for (int x = 1; x < width - 1; x++, src++, dx++, dy++, dxy++)
-//            {
-//                // Convolution with horizontal differentiation kernel mask
-//                float h = ((src[-srcStride + 1] + src[+1] + src[srcStride + 1]) -
-//                           (src[-srcStride - 1] + src[-1] + src[srcStride - 1])) * 0.166666667f;
-//
-//                // Convolution vertical differentiation kernel mask
-//                float v = ((src[+srcStride - 1] + src[+srcStride] + src[+srcStride + 1]) -
-//                           (src[-srcStride - 1] + src[-srcStride] + src[-srcStride + 1])) * 0.166666667f;
-//
-//                // Store squared differences directly
-//                *dx = h * h;
-//                *dy = v * v;
-//                *dxy = h * v;
-//            }
-//
-//            // Skip last column
-//            dx++; dy++; dxy++;
-//            src += srcOffset + 1;
-//        }
-//
-//        // Free some resources which wont be needed anymore
-//        if (image.PixelFormat != PixelFormat.Format8bppIndexed)
-//            grayImage.Dispose();
-//    }
-//
-//
-//    // 2. Smooth the diff images
-//    if (sigma > 0.0)
-//    {
-//        float[,] temp = new float[height, width];
-//
-//        // Convolve with Gaussian kernel
-//        convolve(diffx, temp, kernel);
-//        convolve(diffy, temp, kernel);
-//        convolve(diffxy, temp, kernel);
-//    }
-//
-//
-//    // 3. Compute Harris Corner Response Map
-//    float[,] map = new float[height, width];
-//
-//    fixed (float* pdx = diffx, pdy = diffy, pdxy = diffxy, pmap = map)
-//    {
-//        float* dx = pdx;
-//        float* dy = pdy;
-//        float* dxy = pdxy;
-//        float* H = pmap;
-//        float M, A, B, C;
-//
-//        for (int y = 0; y < height; y++)
-//        {
-//            for (int x = 0; x < width; x++, dx++, dy++, dxy++, H++)
-//            {
-//                A = *dx;
-//                B = *dy;
-//                C = *dxy;
-//
-//                if (measure == HarrisCornerMeasure.Harris)
-//                {
-//                    // Original Harris corner measure
-//                    M = (A * B - C * C) - (k * ((A + B) * (A + B)));
-//                }
-//                else
-//                {
-//                    // Harris-Noble corner measure
-//                    M = (A * B - C * C) / (A + B + Accord.Math.Special.SingleEpsilon);
-//                }
-//
-//                if (M > threshold)
-//                {
-//                    *H = M; // insert value in the map
-//                }
-//            }
-//        }
-//    }
-//
-//
-//    // 4. Suppress non-maximum points
-//    List<IntPoint> cornersList = new List<IntPoint>();
-//
-//    // for each row
-//    for (int y = r, maxY = height - r; y < maxY; y++)
-//    {
-//        // for each pixel
-//        for (int x = r, maxX = width - r; x < maxX; x++)
-//        {
-//            float currentValue = map[y, x];
-//
-//            // for each windows' row
-//            for (int i = -r; (currentValue != 0) &amp;&amp; (i <= r); i++)
-//            {
-//                // for each windows' pixel
-//                for (int j = -r; j <= r; j++)
-//                {
-//                    if (map[y + i, x + j] > currentValue)
-//                    {
-//                        currentValue = 0;
-//                        break;
-//                    }
-//                }
-//            }
-//
-//            // check if this point is really interesting
-//            if (currentValue != 0)
-//            {
-//                cornersList.Add(new IntPoint(x, y));
-//            }
-//        }
-//    }
+    for (NSInteger i = 0; i < self.width - 2; i++) {
+        for (NSInteger j = 0; j < self.height - 2; j++) {
+            d.Ix[i * self.height + j] = self.bitmapImg[i * self.height + j] - self.bitmapImg[(i + 2) * self.height + j];
+            d.Iy[i * self.height + j] = - self.bitmapImg[i * self.height + j] + self.bitmapImg[i * self.height + j + 2];
+            d.Ixy[i * self.height + j] = d.Ix[i * self.height + j]  * d.Iy[i * self.height + j];
 
-    
-//    return cornersList;
-//}
+        }
+    }
+
+    self.derivatives = d;
+}
+
+- (void)applyFiltersToDerivatives {
+
+}
+
+- (void)computeHarrisResponsesWithK:(CGFloat)k {
+    CGFloat memSize = self.width * self.height * sizeof(NSInteger);
+    self.harrisResponses = malloc(memSize);
+    memset(self.harrisResponses, 0, memSize);
+    for (NSInteger i = 0; i < self.width; i++) {
+        for (NSInteger j = 0; j < self.height; j++) {
+            CGFloat a11 = self.derivatives.Ix[i * self.height + j] * self.derivatives.Ix[i * self.height + j];
+            CGFloat a12 = self.derivatives.Iy[i * self.height + j] * self.derivatives.Iy[i * self.height + j];
+
+            CGFloat a21 = self.derivatives.Ix[i * self.height + j] * self.derivatives.Iy[i * self.height + j];
+
+            CGFloat a22 = a21;
+
+            CGFloat det = a11 * a22 - a12 * a21;
+            CGFloat trace = a11 + a22;
+
+            self.harrisResponses[i * self.height + (self.height - j)] = fabs(det - k * trace * trace) * 5 ; // height correction because of mac os coordinate system
+        }
+    }
+
+}
+
 
 @end
